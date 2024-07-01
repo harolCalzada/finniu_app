@@ -9,6 +9,7 @@ import 'package:finniu/presentation/providers/pre_investment_provider.dart';
 import 'package:finniu/presentation/providers/report_provider.dart';
 import 'package:finniu/presentation/providers/settings_provider.dart';
 import 'package:finniu/presentation/screens/home/widgets/empty_message.dart';
+import 'package:finniu/presentation/screens/home/widgets/header_investment.dart';
 import 'package:finniu/presentation/screens/home/widgets/linear_report.dart';
 import 'package:finniu/presentation/screens/home/widgets/modals.dart';
 import 'package:finniu/presentation/screens/home/widgets/pending_investment_card.dart';
@@ -89,13 +90,29 @@ class HomeBody extends HookConsumerWidget {
     final userProfile = ref.watch(userProfileNotifierProvider);
     final settings = ref.read(settingsNotifierProvider.notifier);
 
-
     return Padding(
       padding: const EdgeInsets.only(left: 15, right: 15, top: 60),
       child: SingleChildScrollView(
         child: Column(
           children: [
-            // const SizedBox(height: 70),
+            const HeaderInvestment(
+              containerColor: aboutContainerBusinessColor,
+              iconColor: aboutIconBusinessColor,
+              textColor: aboutTextBusinessColor,
+              urlIcon: 'assets/investment/business_loans_investment_icon.png',
+              urlImageBackground: 'assets/backgroud/image-agro-backgroud.png',
+              textTitle: 'Fondo prestamos empresariales',
+            ),
+            const SizedBox(height: 10),
+            const HeaderInvestment(
+              containerColor: aboutContainerAgroColor,
+              iconColor: aboutIconAgroColor,
+              textColor: aboutTextAgroColor,
+              urlIcon: 'assets/investment/real_estate_agro_icon.png',
+              urlImageBackground: 'assets/backgroud/backgroud_agro.png',
+              textTitle: 'Fondo inversión agro inmobiliaria',
+            ),
+            const SizedBox(height: 10),
             Row(
               children: [
                 InkWell(
